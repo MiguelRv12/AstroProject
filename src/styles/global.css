@@ -1,0 +1,43 @@
+/* Global styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #222; /* Fondo oscuro */
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: #ffa726;
+  text-decoration: none;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #e67e22;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: 1.5rem;
+}
+
+ul, ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+ul li, ol li {
+  margin-bottom: 0.5rem;
+}

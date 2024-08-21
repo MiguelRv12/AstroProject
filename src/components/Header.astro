@@ -1,0 +1,66 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+const { headertitle } = Astro.props;
+const currentLang = Astro.currentLocale;
+const links = {
+  es: [
+    { link: getRelativeLocaleUrl(currentLang, "/"), linkText: "Inicio" },
+    {
+      link: getRelativeLocaleUrl(currentLang, "/about"),
+      linkText: "Acerca de",
+    },
+    { link: getRelativeLocaleUrl("en", "/"), linkText: "EN" },
+  ],
+  en: [
+    { link: getRelativeLocaleUrl(currentLang, "/"), linkText: "Home" },
+    { link: getRelativeLocaleUrl(currentLang, "/about"), linkText: "About" },
+    { link: getRelativeLocaleUrl("es", "/"), linkText: "ES" },
+  ],
+};
+---
+
+<header>
+  <h1>{headertitle}</h1>
+  <nav>
+    {
+      links[currentLang].map((item: { link: string; linkText: string }) => {
+        return <a href={item.link}>{item.linkText}</a>;
+      })
+    }
+  </nav>
+</header>
+
+<style>
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #222;
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid #ffa726;
+  }
+
+  header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #ffa726;
+  }
+
+  header nav a {
+    margin: 0 1rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  header nav a:hover {
+    color: #ffa726;
+  }
+</style>
+
+
+
